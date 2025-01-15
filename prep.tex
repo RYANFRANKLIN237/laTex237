@@ -1,0 +1,104 @@
+\documentclass[12pt,a4paper]{article} % Document class with font size and page size
+
+% Packages for advanced features
+\usepackage{graphicx}    % For including images
+\usepackage{amsmath}     % For mathematical symbols
+\usepackage{geometry}    % For page layout customization
+\geometry{margin=1in}    % 1-inch margins
+\usepackage{natbib}      % For bibliography management
+\usepackage{hyperref}    % For hyperlinks in the document
+\usepackage{fancyhdr}    % For custom headers and footers
+
+% Title and Author details
+\title{A Sample Report on LaTeX} 
+\author{Your Name \\ \texttt{your.email@example.com}}
+\date{\today} % Automatically generates today's date
+
+% Begin Document
+\begin{document}
+
+% Title Page
+\maketitle
+\thispagestyle{empty} % Removes page number from title page
+
+% Abstract
+\begin{abstract}
+This document demonstrates the creation of a structured report using \LaTeX. It includes various sections such as the introduction, figures, tables, equations, and bibliographic references. The document uses packages like \texttt{graphicx}, \texttt{amsmath}, \texttt{natbib}, and others.
+\end{abstract}
+
+% Table of Contents
+\tableofcontents
+\newpage % Page break after Table of Contents
+
+% Section 1: Introduction
+\section{Introduction}
+\LaTeX~is a document preparation system used widely in academia. It is ideal for creating technical and scientific documents. This sample will illustrate:
+\begin{itemize}
+    \item How to structure a document.
+    \item How to include figures and tables.
+    \item How to use bibliographic references.
+\end{itemize}
+
+% Section 2: Figures
+\section{Including Figures}
+You can include figures using the \texttt{graphicx} package. Figure~\ref{fig:sample} is an example.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{example-image-a} % Replace with actual image file name
+    \caption{A Sample Figure}
+    \label{fig:sample}
+\end{figure}
+
+% Section 3: Equations
+\section{Mathematical Equations}
+Mathematical equations are written using the \texttt{amsmath} package. For example:
+\begin{equation}
+    E = mc^2
+    \label{eq:einstein}
+\end{equation}
+Equation~\ref{eq:einstein} represents the mass-energy equivalence.
+
+% Section 4: Tables
+\section{Tables}
+Tables can be created as shown below.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Column 1 & Column 2 & Column 3 \\ \hline
+    A        & B        & C        \\ \hline
+    1        & 2        & 3        \\ \hline
+    \end{tabular}
+    \caption{A Sample Table}
+    \label{tab:sample}
+\end{table}
+
+% Section 5: Bibliography
+\section{Bibliography}
+References are managed using the \texttt{natbib} package. Here is an example citation~\citep{shor1994}.
+
+\bibliographystyle{plain}
+\bibliography{references} % Create a "references.bib" file with bibliographic entries
+
+% Sample Bibliographic Entry (in references.bib file)
+% @book{lamport1994latex,
+%   title={LaTeX: A document preparation system},
+%   author={Lamport, Leslie},
+%   year={1994},
+%   publisher={Addison-Wesley}
+% }
+
+% Footer Setup
+\newpage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textit{A Sample LaTeX Report}}
+\fancyfoot[C]{\thepage}
+
+% Conclusion
+\section{Conclusion}
+This document has demonstrated how to create a complete report using \LaTeX, including sections, tables, figures, equations, and references. Mastering these skills will help you prepare professional documents for academic or research purposes.
+
+\end{document}

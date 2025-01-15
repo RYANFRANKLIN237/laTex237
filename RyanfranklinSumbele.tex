@@ -1,0 +1,78 @@
+
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage[tt]{titlepic}
+\usepackage{verbatim}
+\usepackage{vmargin}
+\usepackage{enumitem}
+\usepackage{float}
+
+
+\setmarginsrb{2.5cm}{2.5cm}{2.5cm}{2.5cm}{1cm}{1.5cm}{1cm}{1.5cm}
+
+\begin{document}
+
+\section{Question (10 marks)}
+
+\begin{tabular}{lp{13cm}}
+\textbf{Q1.} & item you know? (5 marks) \\
+& \begin{itemize}[leftmargin=*]
+    \item Unordered
+    \item Enumerate
+    \item Personalize
+\end{itemize} \\[1em]
+\textbf{Q2.} & Favorite fruits in order. (5 marks) \\
+& \begin{enumerate}[label=(\alph*), leftmargin=*]
+    \item Agrumes
+    \begin{itemize}
+        \item Orange
+        \item Lemon
+        \item Lime
+    \end{itemize}
+    \item Apple
+    \item Pineapple
+\end{enumerate}
+\end{tabular}
+
+\section{Mathematics (5 marks)}
+
+\begin{alignat*}{4}
+    x_1 & {}+ 2x_2  & {}+ 3x_3  & {}= -1 \\
+    4x_1 & {}+ 7x_2  & {}+ 14x_3 & {}= 3 \\
+    x_1 & {}+ 4x_2  & {}+ 4x_3  & {}= 1
+\end{alignat*}
+
+\section{Figure and Citations (10 marks)}
+
+We use \cite{deb2001multi} and \cite{parija2018thesis} as book, and \cite{datta2013real} as an article to set this assignment.
+
+\begin{figure}[H] 
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{ball}
+        \caption{A ball.}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{KMbappe}
+        \caption{A winner.}
+    \end{minipage}
+\end{figure}
+
+
+\section{Bibliographie (5 marks)}
+\bibliographystyle{plain}
+\bibliography{careferences}
+
+\end{document}

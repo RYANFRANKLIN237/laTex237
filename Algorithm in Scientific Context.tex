@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath} 
+
+\begin{document}
+
+\section*{Grover's Search Algorithm}
+
+\begin{algorithm}
+\caption{Grover's Search Algorithm}
+\label{alg:grover}
+\begin{algorithmic}[1]
+\STATE Initialize the quantum state $\ket{s}$ as a uniform superposition.
+\STATE Apply the oracle $O$ to mark the target state.
+\STATE Apply the Grover diffusion operator $D$ to amplify the amplitude of the marked state.
+\STATE Repeat steps 2 and 3 approximately $\sqrt{N}$ times.
+\STATE Measure the quantum state to find the solution.
+\end{algorithmic}
+\end{algorithm}
+
+Algorithm~\ref{alg:grover} demonstrates a quadratic speedup compared to classical search algorithms.
+
+\end{document}

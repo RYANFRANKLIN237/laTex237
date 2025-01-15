@@ -1,0 +1,116 @@
+
+% LaTeX Report File
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{hyperref} % For hyperlinks
+\hypersetup{
+    colorlinks=true,      % Enable colored text instead of boxes
+    linkcolor=black,      % Color for internal links (e.g., Table of Contents)
+    citecolor=blue,       % Color for citations
+    urlcolor=blue         % Color for URLs
+}
+\usepackage{fancyhdr}
+\usepackage{cite}
+
+% Title and Author
+\title{Data Cube Computation Methods}
+\author{Ryanfranklin Sumbele - SC24P115}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+This report explores key data cube computation methods used in data warehousing and OLAP (Online Analytical Processing). The methods covered include Multiway Array Aggregation, BUC Partitioning, Star Cubing, and High Dimensional OLAP. Examples for 4D and 3D data are provided to illustrate these methods.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% Multiway Array Aggregation
+\section{Multiway Array Aggregation (4D Example)}
+Multiway Array Aggregation (MAA) is a data cube computation method that aggregates data in a multi-dimensional array. It minimizes computation costs by computing smaller cuboids first and reusing the results for larger cuboids \cite{agarwal1996aggregate}.
+
+\subsection*{4D Example}
+Consider a 4D dataset with dimensions: \textbf{A}, \textbf{B}, \textbf{C}, and \textbf{D}. The goal is to compute the data cube efficiently.
+
+\begin{itemize}
+    \item \textbf{Step 1}: Aggregate data for the most detailed cuboid (ABCD).
+    \item \textbf{Step 2}: Use results from ABCD to compute cuboids like ABC, ABD, and ACD.
+    \item \textbf{Step 3}: Compute cuboids with fewer dimensions (e.g., AB, AC).
+    \item \textbf{Step 4}: Aggregate to the apex cuboid (e.g., \textit{ALL}).
+\end{itemize}
+
+The computation follows the lattice structure to avoid redundant calculations.
+
+%\begin{figure}[h!]
+%    \centering
+%    \includegraphics[width=0.8\textwidth]{Multiwayarrayagregation.jpeg}
+%    \caption{Conceptual Diagram of Multiway Array Aggregation for 4D Dataset.}
+%    \label{fig:multiway-array}
+%\end{figure}
+
+\newpage
+
+% BUC Partitioning
+\section{BUC Partitioning (3D Example)}
+Bottom-Up Computation (BUC) is a partitioning-based data cube computation method. It is efficient for sparse datasets as it recursively partitions the data and computes cuboids \cite{buc1999}.
+
+\subsection*{3D Example (A, B, C)}
+Consider a 3D dataset with dimensions \textbf{A}, \textbf{B}, and \textbf{C}. The steps for BUC computation are:
+
+\begin{itemize}
+    \item \textbf{Step 1}: Partition the data along dimension \textbf{A}.
+    \item \textbf{Step 2}: For each partition of \textbf{A}, partition along \textbf{B}.
+    \item \textbf{Step 3}: For each sub-partition, partition along \textbf{C}.
+    \item \textbf{Step 4}: Compute aggregates for each partition recursively.
+\end{itemize}
+
+This approach allows selective computation of sparse regions in the data.
+
+%\newpage
+
+% Star Cubing
+\section{Star Cubing}
+Star Cubing integrates the star schema of a data warehouse with efficient cube computation. It uses star trees to organize data and prune unnecessary computations \cite{han2001star}.
+
+\begin{itemize}
+    \item \textbf{Step 1}: Construct a star tree from the dataset.
+    \item \textbf{Step 2}: Traverse the tree to compute cuboids, pruning branches that do not contribute to the result.
+    \item \textbf{Step 3}: Merge results to construct the data cube.
+\end{itemize}
+
+This method is efficient for datasets with high dimensionality and hierarchical structures.
+
+\newpage
+
+% High Dimensional OLAP
+\section{High Dimensional OLAP}
+High Dimensional OLAP (HOLAP) extends traditional OLAP techniques to handle datasets with many dimensions. It combines MOLAP (Multidimensional OLAP) and ROLAP (Relational OLAP) to achieve scalability \cite{chaudhuri1997overview}.
+
+\subsection*{Key Features}
+\begin{itemize}
+    \item \textbf{Hybrid Storage}: Uses both multidimensional arrays and relational databases.
+    \item \textbf{Dimensionality Reduction}: Reduces dimensionality through clustering or attribute selection.
+    \item \textbf{Efficient Querying}: Employs indexing and pre-aggregation to handle complex queries.
+\end{itemize}
+
+High Dimensional OLAP is commonly used in applications like bioinformatics and text mining where the data has hundreds of dimensions.
+
+\newpage
+
+% Conclusion
+\section{Conclusion}
+This report has examined key methods for data cube computation, including Multiway Array Aggregation, BUC Partitioning, Star Cubing, and High Dimensional OLAP. Each method has unique advantages and is suited for specific types of datasets and applications. Understanding these techniques is critical for effective data analysis in large-scale data warehouses.
+
+% References
+\bibliographystyle{plain}
+\bibliography{603references}
+
+\end{document}

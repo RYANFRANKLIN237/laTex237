@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{braket} % Use braket package
+
+\begin{document}
+
+\section*{Quantum State Representation}
+
+\begin{tikzpicture}
+    \draw[->] (0,0) -- (3,0) node[right] {$\ket{0}$};
+    \draw[->] (0,0) -- (0,3) node[above] {$\ket{1}$};
+    \draw[->, thick] (0,0) -- (2,2) node[above] {$\ket{\psi}$};
+\end{tikzpicture}
+
+The vector $\ket{\psi}$ represents a superposition of $\ket{0}$ and $\ket{1}$.
+
+\end{document}
